@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def rgb2dmc(rgb) :
+def rgb_to_dmc(rgb) :
     dmc_list = pd.read_csv('static/resource/DMC Cotton Floss converted to RGB Values.csv',
                       encoding=' CP949', engine='python')
     res = [[999, 'hello world']]
@@ -13,7 +13,7 @@ def rgb2dmc(rgb) :
             res.append([gap, dmc_list.loc[i][0]])
     return res[-1][1]
 
-def dmc2rgb(dmc_code) :
+def dmc_to_rgb(dmc_code) :
     dmc_list = pd.read_csv('static/resource/DMC Cotton Floss converted to RGB Values.csv',
                            encoding=' CP949', engine='python')
     row = dmc_list.loc[(dmc_list['Floss#'] == str(dmc_code))]

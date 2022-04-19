@@ -3,7 +3,7 @@ import sys
 import cv2
 from PIL import Image
 import numpy as np
-from rgb_to_dmc import rgb2dmc, dmc2rgb
+from rgb_to_dmc import rgb_to_dmc, dmc_to_rgb
 
 n8 = np.array([[1, 1, 1],
                [1, 1, 1],
@@ -78,17 +78,19 @@ def make_dot(src, k=3, scale=2, color=True, blur=0, erode=0, alpha=True, to_tw=T
     dmc_colors = []
     rgb_colors = []
     trans_colors = []
+
+    # 16진수 색상코드를 rgb코드로 변환
     def hex_to_rgb(hex):
         return tuple(int(hex[i:i + 2], 16) for i in (0, 2, 4))
 
     for res_c in center:
         color_code = '{0:02x}{1:02x}{2:02x}'.format(res_c[2], res_c[1], res_c[0])
         rgb_colors.append(hex_to_rgb(color_code))
-        dmc_code = rgb2dmc(hex_to_rgb(color_code))
+        dmc_code = rgb_to_dmc(hex_to_rgb(color_code))
         dmc_colors.append(dmc_code)
 
     for dmc in dmc_colors :
-        temp = dmc2rgb(dmc)
+        temp = dmc_to_rgb(dmc)
         trans_colors.append(temp)
 
     for width in range(w-1) :
