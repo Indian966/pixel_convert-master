@@ -1,4 +1,4 @@
-# coding:cp949
+# coding:UTF-8
 import sys
 import cv2
 from PIL import Image
@@ -79,7 +79,7 @@ def make_dot(src, k=3, scale=2, color=True, blur=0, erode=0, alpha=True, to_tw=T
     rgb_colors = []
     trans_colors = []
 
-    # 16Áø¼ö »ö»óÄÚµå¸¦ rgbÄÚµå·Î º¯È¯
+    # 16ì§„ìˆ˜ ìƒ‰ìƒì½”ë“œë¥¼ rgbì½”ë“œë¡œ ë³€í™˜
     def hex_to_rgb(hex):
         return tuple(int(hex[i:i + 2], 16) for i in (0, 2, 4))
 
