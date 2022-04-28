@@ -21,7 +21,7 @@ def index():
 def post():
     img = request.files['image']
     if not img:
-        error='ファイルを選択してね'
+        error='파일을 선택하십시오.'
         return render_template('pixel.html', error=error)
     k = int(request.form['k'])
     scale = int(request.form['scale'])
@@ -50,13 +50,13 @@ def post():
 
 @app.errorhandler(413)
 def error_file_size(e):
-    error = 'ファイルサイズが大きすぎます。アップロード可能サイズは2MBまでです。'
+    error = '파일 크기가 너무 큽니다. 업로드 가능한 크기는 2MB까지입니다.'
     return render_template('pixel.html', error=error), 413
 
 
 @app.errorhandler(404)
 def not_found(e):
-    error = 'らめぇ'
+    error = '페이지를 찾을 수 없습니다.'
     return render_template('pixel.html', error=error), 404
 
 

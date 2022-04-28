@@ -24,10 +24,8 @@
         </div>
         <div class="collapse navbar-collapse" id="nav-right">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" data-toggle="modal" data-target="#info">せつめい</a></li>
-                <li><a href="https://twitter.com/tsutsuji815" target="_blank">Twitter</a></li>
-                <li><a href="https://github.com/tsutsuji815/pixel_convert" target="_blank">GitHub</a></li>
-                <li><a href="https://monopro.org/" target="_blank">SITE</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#info">설명</a></li>
+                <li><a href="https://github.com/Indian966/pixel_convert-master" target="_blank">GitHub</a></li>
             </ul>
         </div>
     </div>
@@ -43,29 +41,13 @@
             </div>
             <div class="modal-body">
                 <p>
-                    画像をモザイク化→色をクラスタリングしてドット絵っぽくします。<br>
-                    途切れ途切れの輪郭線とかノイズのドットが気になるときは平滑化するとマシになるかも。<br>
-                    質問とか要望とか言いたいことがある人は<a href="https://twitter.com/tsutsuji815">Twitter(@tsutsuji815)</a>までどうぞ<br>
+                    이미지를 픽셀로 변환 후 색상 클러스터화하여 도트 그림처럼 보이게 합니다. <br>
                 </p>
-                <h4>ざっくりとした仕様とか</h4>
                 <ul>
-                    <li>対応している画像は2MBまでのjpegとpngです</li>
-                    <li>画像解像度は容量以内であれば制限はありませんが、長辺が1024pxを超えるものは1024pxに縮小されます</li>
-                    <li><s>RGBAやグレースケールのものも扱えますが、出力時にRGBに変換されます<br>
-                        なので透過は無視されます</s></li>
-                    <li>透過PNGに対応しました(2017/05/23)<br>
-                    <li>「透過PNGで書き出す」にチェックを入れるとRGBAの画像は透過PNGとしてそのまま書き出されます</li>
-                    <li>ただしこの時アルファチャンネルはドットのサイズに拡大され、半透明は無視されます</li>
-                    <li>「Twitter用に1pxだけ透過」にチェックを入れると左上の1ピクセルだけ透明な透過PNGとして書き出します<br>
-                    jpegへの強制圧縮を回避したい時に使ってください</li>
-                    <li>処理結果画像は一定期間保持された後削除されます。SNSなどに貼るときは一度ローカルへの保存をおすすめします</li>
-                </ul>
-                <h4>だいたいの原理とか</h4>
-                <ul>
-                    <li>OpenCVを用いてまず画像をn分の1に縮小→元サイズに復元してモザイク化します</li>
-                    <li>この時必要に応じて平滑化やerodeなどのフィルターを掛けます</li>
-                    <li>次に全ピクセルの色をk色にkmeansで分類しそれぞれの平均値を求め、色を置き換え減色します</li>
-                    <li>そして出来上がるのがドット絵っぽい処理画像です</li>
+                    <li>최대 2MB의 jpg, png 형식의 이미지만 지원됩니다.</li>
+                    <li>한 변이 1024px를 넘는 이미지는 자동으로 축소 변환됩니다.</li>
+                    <li><s>RGBA나 그레이스케일의 이미지도 변환되지만 출력시엔 RGB 형식으로 바뀝니다.<br>
+                        투과는 무시됩니다.</s></li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -156,14 +138,6 @@
             </div>
         </div>
         {% else %}
-        <div class="col-md-9">
-            <a class="twitter-timeline"
-               href="https://twitter.com/search?q=%E3%83%89%E3%83%83%E3%83%88%E7%B5%B5%E3%81%93%E3%82%93%E3%81%B0%E3%83%BC%E3%81%9F%2Capp.monopro.org"
-               data-widget-id="865822650572054529" data-chrome="nofooter noborders">#ドット絵こんばーた</a>
-            <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            </script>
-        </div>
         {% endif %}
         {% if error %}
         <div class="modal fade in" id="alert" tabindex="-1">
